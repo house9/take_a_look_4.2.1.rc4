@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150318211803) do
   create_table "foos", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "bar",        null: false
+    t.text     "baz"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
