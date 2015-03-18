@@ -21,4 +21,13 @@ class FooTest < ActiveSupport::TestCase
       Foo.new(title: "the-title", bar: bar).save
     end
   end
+
+  test "serialized Hash that allows null defaults to empty hash" do
+    baz = nil
+    foo = Foo.new(title: "the-title", bar: { x: "X"}, baz: baz)
+    assert foo.baz == {}
+    assert foo.save
+    assert foo.baz == {}
+    assert foo.reload.baz == {}
+  end
 end
